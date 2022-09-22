@@ -1,0 +1,82 @@
+<%- include ./partials/header %>
+
+
+ <!--LINK TO ACCESS DONAR PAGE--> 
+<div class="click">
+    <a href="/donar">Click here to go access the donar list</a>
+  </div>
+    <% if(link) {%>
+      <a href="<%= link %>"><%= link_name %></a>
+    <% } %>
+     <br> 
+    <% if(page_header) { %>
+      <h2><%= page_header %></h2>
+    <% } %>
+
+    <!--LINK TO ACCESS BLOOD CHECK PAGE-->
+    <div class="btn">
+      <a href="/add">Blood check</a>
+      </div> 
+
+
+  <!--CSS STYLING FOR HOME PAGE-->
+   <style>
+    body {
+      background-color: #CD5C5C;
+    }
+    form {
+      text-align: center;
+      padding-top: 10px;
+      border-radius: 10px;
+    }
+    button{
+      border-radius: 10px;
+      background-color: #DDA0DD;
+  }
+    input{
+      border-radius: 10px;
+    }
+    .click {
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 27px;
+      color: pink;
+      padding-top: 80px;
+      text-align: center;
+      background-color: #DC143C;
+    }
+    a{
+      color:black;
+    }
+    .btn{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 30px;
+      text-align: center;
+      padding: 20px;
+   }
+   p{
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     padding: 15px;
+     font-size: 15px;;
+   }
+
+
+  </style>
+
+    
+  <!--IF DATA IS IN, SHOWS UP ON HOME PAGE THE VALUES INPUTTED-->
+    <br>
+    <% for(var i = 0; i < blood.length; i++){ %>
+      <p>Blood notes: <%= blood[i].blood %></p>
+      <p>Donar name: <%= blood[i].name %></p>
+      <% if(blood[i].bloodtrans) { %>
+        <p>Blood Donated</p>
+      <% } else {%>
+        <p>Blood not yet donated</p>
+      <% } %>
+      <br>
+      <br>
+    <% } %>
+  
+
+
+    <%- include ./partials/footer %> 

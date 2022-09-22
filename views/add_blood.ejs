@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<!--CSS STYLING FOR FOR THE ADD BLOOD PAGE-->
+  <style>
+      body{
+        background-color: #CD5C5C;
+      }
+      h2{
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 50px;
+        text-decoration: underline;
+      }
+      .trans{
+        text-align: center;
+        padding: 8px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+      }
+      .dd{
+        text-align: center;
+        padding: 8px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+      }
+      .add{
+        text-align: center;
+        padding: 8px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        
+
+      }
+      .home{
+        text-align: center;
+        padding: 8px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 30px;
+      }
+      .blood{
+        text-align: center;
+        padding: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      a{
+        color: black;
+      }
+      input{
+        border-radius: 5px;
+        background-color: white;
+      }
+      button{
+        background-color: white;
+        height: 50px;
+        width: 100px;
+        border-radius: 5px;
+      }
+
+
+    </style>
+
+
+    <h2>Blood Base</h2>
+    <br>
+
+    <!--CHECKBOX AND TEXTBOX TO CHECK BLOODBANK AND WHO DONATED-->
+    
+    <form action="/add" method="post">
+     <div class="blood">
+      <label for="blood">Blood notes:</label>
+      <input type="text" name="blood" />
+      <br>
+    </div>
+     
+    <div class="trans">
+      <label for="bloodtrans">Has the donar transferred blood?</label>
+      <input type="checkbox" name="bloodtrans">
+      <br>
+    </div>
+     
+    <div class="dd">
+      <label for="donar_id">Donar:</label>
+    
+     <!--SELECTS ID -->
+     <select name="donar_id">
+        <% for(var i=0; i < blood.length; i++) { %>
+          <option value="<%= blood[i].donar_id %>"><%= blood[i].name %></option>
+       <% } %>
+      </select>
+
+
+
+    </div>
+     <!--ADD BUTTON AND LINK TO HOME PAGE-->
+     <div class="add">
+      <br>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <div class="home">
+    <a class="addHome" href="/">Home</a>
+  </div>
+
+  </body>
+</html>
